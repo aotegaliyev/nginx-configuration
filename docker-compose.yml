@@ -23,5 +23,5 @@ volumes:
   certs:
 
 networks:
-  nc-network:
+  server-network:
     external: true
