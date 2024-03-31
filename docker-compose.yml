@@ -14,6 +14,14 @@ services:
       - ./nginx/sites-enabled:/etc/nginx/sites-enabled
       - ./www/:/var/www:cached
       - certs:/etc/letsencrypt
+    networks:
+      server-network:
+        aliases:
+          - nginx
 
 volumes:
   certs:
+
+networks:
+  nc-network:
+    external: true
