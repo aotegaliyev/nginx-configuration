@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+    restart: always
+    container_name: nginx
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ./www/:/var/www:cached
+      - certs:/etc/letsencrypt
+
+volumes:
+  certs:
